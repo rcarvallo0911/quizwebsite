@@ -1,0 +1,115 @@
+<html>
+        <head>
+         <meta charset="utf-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+         <style>
+               body{
+                   text-align: center;
+                   background-image:url("");
+               }
+               .card{
+                   text-align: center;
+                   width:320px;
+                   height:320px;
+                   padding:10px;
+                   margin:10px;
+                   display:inline-block;
+                   border-radius:10px;
+                   box-shadow:grey 5px 5px 5px;
+                   background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/TreesInTheFog.jpg/1200px-TreesInTheFog.jpg");
+                   -webkit-transition:width .5s;
+                   transition:width .5s;
+                   overflow-y: scroll;
+                   font-family:"Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+                   
+               }
+               .card:hover{
+                   width:350px;
+                   background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC")
+               }
+           </style>
+           </head>
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+           <script type = "text/template" id="template">
+               <div class="card">
+                   <h1> {{Question}} </h1>
+                   <p>1) {{Choice1}} </p>
+                   <p>2) {{Choice2}} </p>
+                   <p>3) {{Choice3}} </p>
+                   <p>4) {{Choice4}} </p>
+                   <input type = "text" id="{{id}}" placeholder="Enter Choice">
+               </div>
+           </script>
+           <script>
+               var data;
+               function loadJSON(){             
+                   $.getJSON("https://project-a47de.firebaseio.com/.json",function(results){
+                       data = results;
+                       displayData();
+                   })
+               }
+               function displayData(){
+                   var build = "";
+                   var template = document.getElementById("template").innerHTML;
+                   var output = document.getElementById("output");
+                   for(var key in data.Folklore){
+                                   build += Mustache.render(template,data.Folklore[key]);
+                               }
+                   output.innerHTML = build;
+               }
+               function grade(){
+                   var score = 0;
+                   for(var i =1; i <= 10; i++){
+                       var correctAnswer = data.Folklore["Q" + i].Answer;
+                       var userAnswer = document.getElementById("Q" + i).value;
+                       if(correctAnswer == userAnswer){
+                           score++;
+                       }
+                   }
+                   if (score == 10){
+                       alert("You scored " + score + "! You totally aced it man!")
+                   }else if(score == 8 || score == 9){
+                       alert("You scored " + score + "! Ayyyy, thats pretty good!")
+                   }else if(score == 7 || score == 6){
+                       alert("You scored " + score + ". Pretty average, maybe you should study up on the material a tiny bit more.")
+                   }else if(score == 5 || score == 4){
+                       alert("You scored " + score + "... I mean this stuff was all in the reading...")
+                   }else if(score == 3 || score == 2){
+                       alert("You scored " + score + "... How?")
+                   }else{
+                       alert("You scored " + score + "! Theres no hope for you!")
+                   }
+               }
+              
+           </script>
+           <body onload="loadJSON()">
+       <nav class="navbar navbar-inverse">
+         <div class="container-fluid">
+           <div class="navbar-header">
+             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>                        
+             </button>
+             <a class="navbar-brand" href="project.html">Mythos <span class="glyphicon glyphicon-tree-conifer logo"></span></a>
+           </div>
+           <div class="collapse navbar-collapse" id="myNavbar">
+             <ul class="nav navbar-nav">
+                   <li class="active"><a href="folklore.html">Home</a></li>
+                   <li><a href="witches.html">Witches</a></li>
+                   <li><a href="slavic.html">Slavic</a></li>
+                   <li><a href="impact.html">Impact</a></li>
+                   <li><a href="quiz.html">Quiz</a></li>
+             </ul>
+           </div>
+         </div>
+       </nav>
+               <div id="output"></div>
+               <button onclick = "grade()"> Check Your Score! </button> 
+          
+           </body>
+       </html>
