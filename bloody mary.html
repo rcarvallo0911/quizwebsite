@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>BLOODY MARY</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    .jumbotron {
+        background-image:url("https://media.giphy.com/media/FRQ1Cb5PlXZWE/giphy.gif");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: white;
+        padding: 100px 25px;
+    }
+    .bg-grey {
+      background-color: rgb(0,0, 0);
+    }
+    .wimg{
+        
+    }
+    footer {
+      background-color: rgb(240, 240, 240);
+      padding: 25px;
+    }
+    h1{
+      color:white;
+      font-family:"Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    }
+    h43{
+      color:white;
+      text-align:right;
+      font-size:14pt;
+      font-family:"Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    }
+   
+   
+     
+    
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid bg-grey">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Mythos <span class="glyphicon glyphicon-tree-conifer logo"></span></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="urban legends.html">Home</a></li>
+        <li><a href="bloody mary.html">Bloody Mary</a></li>
+        <li><a href="the vanishing hitchhiker.html">Vanishing Hitchhiker</a></li>
+        <li><a href="quiz2.html">Quiz</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron">
+  <div class="container text-center ">
+    <h1>Bloody Mary</h1>      
+    <p>The Chilling Tale</p>
+  </div>
+</div>
+<div class="container-fluid bg-grey">
+    <div class="row">
+      <div class="col-sm-4">
+        <img class="wimg" src="data:image/jpeg;base64,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"></img>
+      </div>
+      <div class="col-sm-8">
+        <h1>Who is Bloody Mary?</h1>
+        <h43>Bloody Mary is more than just a ghost behind a mirror, she has a very interesting past dating back to the late 16th century. Bloody Mary is the nickname for the english Queen Mary Tudor or Queen Mary l. Queen Mary was the child of King Henry VII and Catherine of Aragon. She was the first of many of Henry’s Children to live until adulthood. When Mary took the throne after her father she created new religious rules. These new rules resulted in the persecution of over 300 protestants which then brought about the name Bloody Mary. 
+</h43>      
+        <p>...</p>
+      </div>
+      
+    </div>
+  </div>
+<div class="container-fluid bg-grey">
+    <div class="row">
+      <div class="col-sm-8">
+        <h1>The Ritual </h1>
+        <h43>
+          It has been said that performing a certain ritual will make bloody mary appear in your mirror and scratch you face. There are many different ways the ritual is performed because it has been told so many times.<br><br>
+
+Here is how one persons remembers it:<br><br>
+
+"Here’s how I always heard the story. You go into a room with a mirror and turn all the lights off (this works well in a bathroom). You begin, in a whisper, to chant “bloody mary. bloody mary, Bloody Mary”, as you continue to chant your voice should grow louder and louder into a near scream. While you are chanting you should be spinning around at a medium rate and taking a glimpse in the mirror at each pass. Near the 13th repetition of the words . . . “she” should appear and…? A friend of mine said that her roommate tried this and ran out screaming from the bathroom. She was shaking and appeared genuinely terrified and refused to talk about the incident, but those who were around her when she came out noticed that her clenched fingers were covered in blood."
+
+
+
+
+</h43>      
+        <p>...</p>
+      </div>
+      <div class="col-sm-4">
+        <img class="wimg" src="https://media1.tenor.com/images/feed31046fdf3bda701d1be790985e38/tenor.gif?itemid=5486404"></img>
+      </div>
+    </div>
+  </div>
+<div class="container-fluid bg-grey text-center">
+   <div class="row">
+      <div class="col-sm-12">
+        <iframe width="640" height="360" src="https://www.youtube.com/embed/d-c8CfYFHUQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
